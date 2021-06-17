@@ -1,3 +1,10 @@
+<?php
+require_once "includes/class_user.php";
+$usuario = new Usuario();
+
+$data_user = $usuario->listar_usuario_x_id($_GET['idUser']);
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -15,23 +22,23 @@
         <form method="POST" action="procesos/form_registro_user.php" enctype="multipart/form-data">
             <div class="form-group">
                 <label for="nombre_user">Nombres</label>
-                <input type="text" class="form-control" id="nombre_user" name="nombre_user">
+                <input type="text" class="form-control" id="nombre_user" name="nombre_user" value="<?php echo $data_user['nombre'] ?>">
             </div>
             <div class="form-group">
                 <label for="apell_user">Apellidos</label>
-                <input type="text" class="form-control" id="apell_user" name="apell_user">
+                <input type="text" class="form-control" id="apell_user" name="apell_user" value="<?php echo $data_user['apellido'] ?>">
             </div>
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="correo_user">Correo</label>
-                    <input type="email" class="form-control" name="correo_user" id="correo_user">
+                    <input type="email" class="form-control" name="correo_user" id="correo_user" value="<?php echo $data_user['correo'] ?>">
                 </div>
                 <div class="form-group col-md-6">
                     <label for="pass_user">Contraseña</label>
                     <input type="password" class="form-control" name="pass_user" id="pass_user">
                 </div>
             </div>
-            <button type="submit" class="btn btn-primary">Registrarse</button>
+            <button type="submit" class="btn btn-primary">Actualizar datos</button>
         </form>
     </div>
 

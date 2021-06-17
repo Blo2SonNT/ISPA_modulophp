@@ -15,6 +15,7 @@
     $user_sistema = new Usuario();
 
     $lista = $user_sistema->listar_usuarios();
+    $prueba = $user_sistema->listar_usuario_x_id(1);
     // print_r("<pre>");
     // print_r($lista);
     ?>
@@ -39,26 +40,19 @@
                         <td><?php  echo $lista[$x]['apellido'] ?></td>
                         <td><?php  echo $lista[$x]['correo'] ?></td>
                         <td><?php  echo $lista[$x]['nickname'] ?></td>
+                        <td>
+                        <a href="editar_usuario.php?idUser=<?php echo $lista[$x]['id_usuario'] ?>">
+                            <button class="btn btn-warning">EDITAR</button>
+                        </a>
+                        </td>
                     </tr>
                     
                     <?php
                 }
                 
                 ?>
-
-
-                <?php
-                foreach($lista as $llave){
-                    ?>
-                    <tr>
-                        <td><?php  echo $llave['nombre'] ?></td>
-                        <td><?php  echo $llave['apellido'] ?></td>
-                        <td><?php  echo $llave['correo'] ?></td>
-                        <td><?php  echo $llave['nickname'] ?></td>
-                    </tr>
-                    <?php
-                }
-                ?>
+                
+                
             </tbody>
         </table>
     </div>

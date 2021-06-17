@@ -47,4 +47,13 @@ class Usuario extends Conexion{
      * FETCH_BOTH // devuelve la info con ambos formatos
      */
 
+    function listar_usuario_x_id($id_usuario_bonito){
+        $gato_consulta = "SELECT * FROM tb_usuario WHERE id_usuario = ?";
+        $consulta = $this->conexion->prepare($gato_consulta);
+        $data_user = array($id_usuario_bonito);
+        $consulta->execute($data_user);
+        $resultado  = $consulta->fetch(PDO::FETCH_ASSOC);
+        return $resultado;
+    }
+
 }
