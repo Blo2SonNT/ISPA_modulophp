@@ -1,4 +1,7 @@
 <?php
+// print_r($_POST);exit;
+$archivo = $_FILES['pass_user']['name'];
+echo $archivo;exit;
 require_once "../includes/class_user.php";
 $user_sistema = new Usuario();
 $respuesta = $user_sistema->guardar_usuario(

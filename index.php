@@ -12,7 +12,7 @@
 <body>
 
     <div class="container">
-        <form method="POST" action="procesos/form_registro_user.php">
+        <form method="POST" action="procesos/form_registro_user.php" enctype="multipart/form-data">
             <div class="form-group">
                 <label for="nombre_user">Nombres</label>
                 <input type="text" class="form-control" id="nombre_user" name="nombre_user">
@@ -28,7 +28,7 @@
                 </div>
                 <div class="form-group col-md-6">
                     <label for="pass_user">Contraseña</label>
-                    <input type="password" class="form-control" name="pass_user" id="pass_user">
+                    <input type="file" class="form-control" name="pass_user" id="pass_user">
                 </div>
             </div>
             <button type="submit" class="btn btn-primary">Registrarse</button>

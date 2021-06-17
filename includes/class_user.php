@@ -33,4 +33,18 @@ class Usuario extends Conexion{
         return "Registro exitoso";
     }
 
+    function listar_usuarios(){
+        $perro_consulta = "SELECT * FROM tb_usuario";
+        $consulta = $this->conexion->query($perro_consulta);
+        $resultado  = $consulta->fetchall(PDO::FETCH_ASSOC);
+        return $resultado;
+    }
+
+    /**
+     * FETCH_ASSOC //devuelve la info como un array asociativo
+     * FETCH_NUM //devuelve la info como un array numerico
+     * FETCH_OBJ  //devuelve la info como un objeto
+     * FETCH_BOTH // devuelve la info con ambos formatos
+     */
+
 }
