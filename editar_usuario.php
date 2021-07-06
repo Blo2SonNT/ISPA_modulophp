@@ -19,7 +19,7 @@ $data_user = $usuario->listar_usuario_x_id($_GET['idUser']);
 <body>
 
     <div class="container">
-        <form method="POST" action="procesos/form_registro_user.php" enctype="multipart/form-data">
+        <form method="POST" action="procesos/form_update_user.php">
             <div class="form-group">
                 <label for="nombre_user">Nombres</label>
                 <input type="text" class="form-control" id="nombre_user" name="nombre_user" value="<?php echo $data_user['nombre'] ?>">
@@ -28,16 +28,11 @@ $data_user = $usuario->listar_usuario_x_id($_GET['idUser']);
                 <label for="apell_user">Apellidos</label>
                 <input type="text" class="form-control" id="apell_user" name="apell_user" value="<?php echo $data_user['apellido'] ?>">
             </div>
-            <div class="form-row">
-                <div class="form-group col-md-6">
-                    <label for="correo_user">Correo</label>
-                    <input type="email" class="form-control" name="correo_user" id="correo_user" value="<?php echo $data_user['correo'] ?>">
-                </div>
-                <div class="form-group col-md-6">
-                    <label for="pass_user">Contraseña</label>
-                    <input type="password" class="form-control" name="pass_user" id="pass_user">
-                </div>
+            <div class="form-group">
+                <label for="correo_user">Correo</label>
+                <input type="email" class="form-control" name="correo_user" id="correo_user" value="<?php echo $data_user['correo'] ?>">
             </div>
+            <input type="hidden" name="id_user" value="<?php echo $_GET['idUser'] ?>">
             <button type="submit" class="btn btn-primary">Actualizar datos</button>
         </form>
     </div>

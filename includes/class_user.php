@@ -56,4 +56,20 @@ class Usuario extends Conexion{
         return $resultado;
     }
 
+    function actualiza_usuario($id, $nombre, $apellido, $correo){
+        $this->nombre = $nombre;
+        $this->apellido = $apellido;
+        $this->correo = $correo;
+
+        $query_update = "UPDATE tb_usuario SET nombre = ?, apellido = ?, correo = ? WHERE id_usuario = $id";
+        $update = $this->conexion->prepare($query_update);
+        $array_update = array(
+            $this->nombre,
+            $this->apellido,
+            $this->correo
+        );
+        $respuesta = $update->execute($array_update);
+        return $respuesta;
+    }
+
 }

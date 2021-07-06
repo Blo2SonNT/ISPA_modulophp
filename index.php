@@ -12,7 +12,7 @@
 <body>
 
     <div class="container">
-        <form method="POST" action="procesos/form_registro_user.php" enctype="multipart/form-data">
+        <form method="POST" action="procesos/form_registro_user.php">
             <div class="form-group">
                 <label for="nombre_user">Nombres</label>
                 <input type="text" class="form-control" id="nombre_user" name="nombre_user">
