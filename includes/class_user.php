@@ -2,7 +2,8 @@
 
 require_once "class_conexion.php";
 
-class Usuario extends Conexion{
+class Usuario extends Conexion
+{
     private $nombre;
     private $apellido;
     private $correo;
@@ -15,7 +16,8 @@ class Usuario extends Conexion{
         $this->conexion = $this->conexion->conexion_bd_notas();
     }
 
-    function guardar_usuario($nombre_form, $apellido_form, $correo_form, $pass_form){
+    function guardar_usuario($nombre_form, $apellido_form, $correo_form, $pass_form)
+    {
         $this->nombre = $nombre_form;
         $this->apellido = $apellido_form;
         $this->correo = $correo_form;
@@ -33,7 +35,8 @@ class Usuario extends Conexion{
         return "Registro exitoso";
     }
 
-    function listar_usuarios(){
+    function listar_usuarios()
+    {
         $perro_consulta = "SELECT * FROM tb_usuario";
         $consulta = $this->conexion->query($perro_consulta);
         $resultado  = $consulta->fetchall(PDO::FETCH_ASSOC);
@@ -47,7 +50,8 @@ class Usuario extends Conexion{
      * FETCH_BOTH // devuelve la info con ambos formatos
      */
 
-    function listar_usuario_x_id($id_usuario_bonito){
+    function listar_usuario_x_id($id_usuario_bonito)
+    {
         $gato_consulta = "SELECT * FROM tb_usuario WHERE id_usuario = ?";
         $consulta = $this->conexion->prepare($gato_consulta);
         $data_user = array($id_usuario_bonito);
@@ -56,7 +60,8 @@ class Usuario extends Conexion{
         return $resultado;
     }
 
-    function actualiza_usuario($id, $nombre, $apellido, $correo){
+    function actualiza_usuario($id, $nombre, $apellido, $correo)
+    {
         $this->nombre = $nombre;
         $this->apellido = $apellido;
         $this->correo = $correo;
@@ -72,4 +77,20 @@ class Usuario extends Conexion{
         return $respuesta;
     }
 
+    function eliminar_usuario($id)
+    {
+        $query_delete = "DELETE FROM tb_usuario WHERE id_usuario = ?";
+        $delete = $this->conexion->prepare($query_delete);
+        $array_delete = array($id);
+        $delete->execute($array_delete);
+        return "
+        <script>
+        Swal.fire(
+            'Usuario Eliminado!',
+            'El usuario quedo sin registro en su BD.',
+            'success'
+        )
+        </script>
+        ";
+    }
 }
