@@ -90,6 +90,12 @@ class Usuario extends Conexion
             'El usuario quedo sin registro en su BD.',
             'success'
         )
+
+        setTimeout('redireccion()', 2000);
+
+        function redireccion(){
+            window.location = 'http://localhost:8080/erp_notas_ispa/lista_usuarios.php';
+        }
         </script>
         ";
     }
