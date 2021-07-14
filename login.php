@@ -61,7 +61,8 @@
         $usurio_data = $query->fetch(PDO::FETCH_ASSOC);
 
         if( $usurio_data){
-            $_SESSION['usuario_foca'] = $usurio_data['id_usuario'];
+            $_SESSION['id'] = $usurio_data['id_usuario'];
+            $_SESSION['id_rol'] =  $usurio_data['id_rol'];
             header("location: admin.php");
         }else{
             $error_login = "Usuario y/o contraseña invalida";
